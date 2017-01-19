@@ -350,6 +350,9 @@ public class CircleAlarmTimerView extends View {
 
     // Whether the down event inside circle button
     private boolean mInCircleButton1(float x, float y) {
+        //ScrollView Bug Fixed, Now Scroll View won't affect the behavior of button touch event - https://github/shahwaiz90
+        getParent().requestDisallowInterceptTouchEvent(true);
+            
         float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
         float x2 = (float) (mCx + r * Math.sin(mCurrentRadian1));
         float y2 = (float) (mCy - r * Math.cos(mCurrentRadian1));
@@ -361,6 +364,9 @@ public class CircleAlarmTimerView extends View {
 
     // Whether the down event inside circle button
     private boolean mInCircleButton(float x, float y) {
+        //ScrollView Bug Fixed, Now Scroll View won't affect the behavior of button touch event - https://github/shahwaiz90
+        getParent().requestDisallowInterceptTouchEvent(true);
+        
         float r = mRadius - mCircleStrokeWidth / 2 - mGapBetweenCircleAndLine;
         float x2 = (float) (mCx + r * Math.sin(mCurrentRadian));
         float y2 = (float) (mCy - r * Math.cos(mCurrentRadian));
